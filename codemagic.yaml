@@ -1,0 +1,23 @@
+workflows:
+  ios:
+    name: iOS build and test
+    environment:
+      vars:
+        XCODE_SCHEME: "YourScheme"
+        XCODE_WORKSPACE: "YourWorkspace.xcworkspace"
+        XCODE_PROJECT: "YourProject.xcodeproj"
+        API_URL: "https://your-api-url.com"
+    scripts:
+      - name: Install dependencies
+        script: flutter pub get
+      - name: Build iOS
+        script: flutter build ios --release --no-codesign
+      - name: Run unit tests
+        script: flutter test
+    artifacts:
+      - build/ios/*.ipa
+      - build/ios/iphonesimulator/*.app
+    publishing:
+      email:
+        recipients:
+          - ibrahimabbesbaraka@gmail.com
