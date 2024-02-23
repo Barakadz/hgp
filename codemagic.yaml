@@ -18,8 +18,7 @@ workflows:
           -sdk iphoneos \
           SKIP_INSTALL=NO \
           BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
-          clean archive
-      - name: Export IPA
+       - name: Export IPA
         script: |
           xcodebuild -exportArchive \
           -archivePath $CM_ARCHIVE_PATH \
